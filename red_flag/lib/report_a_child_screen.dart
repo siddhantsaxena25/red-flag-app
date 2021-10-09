@@ -5,6 +5,7 @@ import './login_screen.dart';
 import './home_page_ongoing_cases.dart';
 import './file_a_case_screen.dart';
 import './dashboard_screen.dart';
+import './report_confirmation_screen.dart';
 
 class ReportAChildScreen extends StatefulWidget {
   const ReportAChildScreen({ Key? key }) : super(key: key);
@@ -214,9 +215,12 @@ class _ReportAChildScreenState extends State<ReportAChildScreen> {
           ),
         ),
       ),
-      body: const Center(
-        child: Text(
-          "To be build.",
+      body: Center(
+        child: TextButton(
+          onPressed: () {
+            Navigator.of(context).pushNamed(ReportConfirmationScreen.routeName);
+          },
+          child: const Text("Navigate to confirmation screen"),
         ),
       ),
     );
