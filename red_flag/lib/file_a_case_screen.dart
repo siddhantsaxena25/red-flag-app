@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:red_flag/home_page_ongoing_cases.dart';
 
 import './login_screen.dart';
 import './home_page_ongoing_cases.dart';
 import './report_a_child_screen.dart';
 import './dashboard_screen.dart';
+import './case_confirmation_screen.dart';
 
 class FileACaseScreen extends StatefulWidget {
-  const FileACaseScreen({ Key? key }) : super(key: key);
+  const FileACaseScreen({Key? key}) : super(key: key);
 
   static const routeName = "/file_a_case_screen";
 
@@ -81,7 +81,9 @@ class _FileACaseScreenState extends State<FileACaseScreen> {
                             thickness: 4.0,
                             color: Colors.white,
                           ),
-                          const SizedBox(height: 36.0,),
+                          const SizedBox(
+                            height: 36.0,
+                          ),
                           Container(
                             width: double.infinity,
                             child: Column(
@@ -90,7 +92,8 @@ class _FileACaseScreenState extends State<FileACaseScreen> {
                               children: [
                                 TextButton(
                                   onPressed: () {
-                                    Navigator.of(context).pushNamed(OngoingCasesScreen.routeName);
+                                    Navigator.of(context).pushNamed(
+                                        OngoingCasesScreen.routeName);
                                   },
                                   child: Text(
                                     "Ongoing Cases",
@@ -116,7 +119,8 @@ class _FileACaseScreenState extends State<FileACaseScreen> {
                                 ),
                                 TextButton(
                                   onPressed: () {
-                                    Navigator.of(context).pushNamed(ReportAChildScreen.routeName);
+                                    Navigator.of(context).pushNamed(
+                                        ReportAChildScreen.routeName);
                                   },
                                   child: Text(
                                     "Report a missing child",
@@ -129,7 +133,8 @@ class _FileACaseScreenState extends State<FileACaseScreen> {
                                 ),
                                 TextButton(
                                   onPressed: () {
-                                    Navigator.of(context).pushNamed(DashboardScreen.routeName);
+                                    Navigator.of(context)
+                                        .pushNamed(DashboardScreen.routeName);
                                   },
                                   child: Text(
                                     "Dashboard",
@@ -165,16 +170,21 @@ class _FileACaseScreenState extends State<FileACaseScreen> {
                               ],
                             ),
                           ),
-                          const SizedBox(height: 36.0,),
+                          const SizedBox(
+                            height: 36.0,
+                          ),
                           const Divider(
                             thickness: 4.0,
                             color: Colors.white,
                           ),
-                          const SizedBox(height: 40.0,),
+                          const SizedBox(
+                            height: 40.0,
+                          ),
                           Center(
                             child: TextButton(
                               onPressed: () {
-                                Navigator.of(context).pushNamed(LoginScreen.routeName);
+                                Navigator.of(context)
+                                    .pushNamed(LoginScreen.routeName);
                               },
                               child: Text(
                                 "LOGOUT",
@@ -215,9 +225,12 @@ class _FileACaseScreenState extends State<FileACaseScreen> {
           ),
         ),
       ),
-      body: const Center(
-        child: Text(
-          "To be build.",
+      body: Center(
+        child: TextButton(
+          onPressed: () {
+            Navigator.of(context).pushNamed(CaseConfirmationScreen.routeName);
+          },
+          child: const Text("Navigate to confirmation screen"),
         ),
       ),
     );
