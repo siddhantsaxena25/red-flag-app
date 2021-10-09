@@ -6,6 +6,10 @@ import './home_page_ongoing_cases.dart';
 import './file_a_case_screen.dart';
 import './report_a_child_screen.dart';
 import './dashboard_screen.dart';
+import './case_confirmation_screen.dart';
+import './report_confirmation_screen.dart';
+import './filed_case_details_screen.dart';
+import './reported_case_details_screen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -25,8 +29,11 @@ class MyApp extends StatelessWidget {
         FileACaseScreen.routeName: (BuildContext context) => FileACaseScreen(),
         ReportAChildScreen.routeName: (BuildContext context) => ReportAChildScreen(),
         DashboardScreen.routeName: (BuildContext context) => DashboardScreen(),
+        CaseConfirmationScreen.routeName: (BuildContext context) => CaseConfirmationScreen(),
+        ReportConfirmationScreen.routeName: (BuildContext context) => ReportConfirmationScreen(),
+        FiledCaseDetailsScreen.routeName: (BuildContext context) => FiledCaseDetailsScreen(),
+        ReportedCaseDetailsScreen.routeName: (BuildContext context) => ReportedCaseDetailsScreen(),
       },
     );
   }
 }
-
