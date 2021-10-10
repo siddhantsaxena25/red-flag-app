@@ -14,6 +14,26 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+
+  var _aadharController;
+  var _passwordController;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _aadharController = TextEditingController();
+    _passwordController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    
+    _aadharController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,6 +115,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           Container(
                             height: 40.0,
                             child: TextField(
+                              controller: _aadharController,
                               style: GoogleFonts.poppins(fontSize: 19.0),
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(
@@ -134,6 +155,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           Container(
                             height: 40.0,
                             child: TextField(
+                              controller: _passwordController,
                               style: GoogleFonts.poppins(fontSize: 19.0),
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(
@@ -163,7 +185,44 @@ class _LoginScreenState extends State<LoginScreen> {
               // Login button
               TextButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamed(OngoingCasesScreen.routeName);
+                  if (_aadharController.text == "" && _passwordController.text == "") {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                       SnackBar(
+                        content: Text(
+                          "Enter Aadhar number and password.",
+                          style: GoogleFonts.poppins(fontSize: 16.0),
+                        ),
+                      ),
+                    );
+                  }
+
+                  else if (_aadharController.text == "" || _passwordController.text == "") {
+                    if (_aadharController.text == "") {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            "Enter your Aadhar number",
+                            style: GoogleFonts.poppins(fontSize: 16.0),
+                          ),
+                        ),
+                      );
+                    } 
+                    
+                    else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            "Enter your password",
+                            style: GoogleFonts.poppins(fontSize: 16.0),
+                          ),
+                        ),
+                      );
+                    }
+                  }
+                                    
+                  else {
+                    Navigator.of(context).pushNamed(OngoingCasesScreen.routeName);
+                  }
                 },
                 child: Text(
                   "LOGIN",
@@ -202,7 +261,9 @@ class _LoginScreenState extends State<LoginScreen> {
                               fontSize: 16.0,
                             ),
                           ),
-                          const SizedBox(height: 10.0,),
+                          const SizedBox(
+                            height: 10.0,
+                          ),
                           TextButton(
                             onPressed: () {
                               Navigator.of(context)
@@ -233,7 +294,9 @@ class _LoginScreenState extends State<LoginScreen> {
                               fontSize: 16.0,
                             ),
                           ),
-                          const SizedBox(height: 10.0,),
+                          const SizedBox(
+                            height: 10.0,
+                          ),
                           TextButton(
                             onPressed: () {},
                             child: Text(

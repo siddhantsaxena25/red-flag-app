@@ -14,6 +14,29 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
+
+  var _aadharController;
+  var _passwordController;
+  var _confirmPasswordController;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _aadharController = TextEditingController();
+    _passwordController = TextEditingController();
+    _confirmPasswordController = TextEditingController();    
+  }
+
+  @override
+  void dispose() {
+    
+    _aadharController.dispose();
+    _passwordController.dispose();
+    _confirmPasswordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,6 +109,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           Container(
                             height: 40.0,
                             child: TextField(
+                              controller: _aadharController,
                               style: GoogleFonts.poppins(fontSize: 19.0),
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(
@@ -125,6 +149,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           Container(
                             height: 40.0,
                             child: TextField(
+                              controller: _passwordController,
                               style: GoogleFonts.poppins(fontSize: 19.0),
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(
@@ -165,6 +190,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           Container(
                             height: 40.0,
                             child: TextField(
+                              controller: _confirmPasswordController,
                               style: GoogleFonts.poppins(fontSize: 19.0),
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(
@@ -195,7 +221,66 @@ class _SignInScreenState extends State<SignInScreen> {
               Center(
                 child: TextButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed(OngoingCasesScreen.routeName);
+                    if (_aadharController.text == "" && _passwordController.text == "" && _confirmPasswordController.text == "") {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                          "Enter sign in details.",
+                          style: GoogleFonts.poppins(fontSize: 16.0),
+                          ),
+                        )
+                      );
+                    }
+
+                    else {
+                      if (_aadharController.text == "") {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              "Enter your Aadhar number.",
+                              style: GoogleFonts.poppins(fontSize: 16.0),
+                            )
+                          )
+                        );
+                      }
+
+                      else if (_passwordController.text == "") {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              "Enter your password.",
+                              style: GoogleFonts.poppins(fontSize: 16.0),
+                            )
+                          )
+                        );
+                      }
+
+                      else if (_confirmPasswordController.text == "") {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              "Please confirm your password.",
+                              style: GoogleFonts.poppins(fontSize: 16.0),
+                            )
+                          )
+                        );
+                      }
+
+                      else if (_passwordController.text != _confirmPasswordController.text) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              "Wrong password entered while confirmation.",
+                              style: GoogleFonts.poppins(fontSize: 16.0),
+                            )
+                          )
+                        );
+                      }
+
+                      else {
+                        Navigator.of(context).pushNamed(OngoingCasesScreen.routeName);
+                      }
+                    }
                   },
                   child: Text(
                     "SIGN IN",
