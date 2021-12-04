@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:red_flag/dashboard_filed_cases_screen.dart';
+import 'package:red_flag/dashboard_filed_reports_details_screen.dart';
+import 'package:red_flag/dashboard_filed_reports_screen.dart';
+import 'package:red_flag/ongoing_case_details_screen.dart';
 
 import './sign_in_screen.dart';
 import './login_screen.dart';
@@ -21,7 +25,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const LoginScreen(),
+      home: LoginScreen(),
       routes: {
         LoginScreen.routeName: (BuildContext context) => LoginScreen(),
         SignInScreen.routeName: (BuildContext context) => SignInScreen(),
@@ -33,6 +37,10 @@ class MyApp extends StatelessWidget {
         ReportConfirmationScreen.routeName: (BuildContext context) => ReportConfirmationScreen(),
         FiledCaseDetailsScreen.routeName: (BuildContext context) => FiledCaseDetailsScreen(),
         ReportedCaseDetailsScreen.routeName: (BuildContext context) => ReportedCaseDetailsScreen(),
+        OngoingCaseDetailsScreen.routeName: (BuildContext context) => OngoingCaseDetailsScreen(),
+        DashboardFiledCasesScreen.routeName: (BuildContext context) => DashboardFiledCasesScreen(),
+        DashboardFiledReportsScreen.routeName: (BuildContext context) => DashboardFiledReportsScreen(),
+        DashboardFiledReportsDetailsScreen.routeName: (BuildContext context) => DashboardFiledReportsDetailsScreen()
       },
     );
   }
