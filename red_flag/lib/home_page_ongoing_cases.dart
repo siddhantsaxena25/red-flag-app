@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:red_flag/ongoing_case_details_screen.dart';
 import 'package:red_flag/report_a_child_screen.dart';
 
 import './login_screen.dart';
@@ -68,7 +69,7 @@ class _OngoingCasesScreenState extends State<OngoingCasesScreen> {
                             ),
                           ),
                           Text(
-                            "Aadhar number",
+                            LoginScreen.aadhar,
                             style: GoogleFonts.poppins(
                               color: Colors.white,
                               fontSize: 18.0,
@@ -81,7 +82,9 @@ class _OngoingCasesScreenState extends State<OngoingCasesScreen> {
                             thickness: 4.0,
                             color: Colors.white,
                           ),
-                          const SizedBox(height: 36.0,),
+                          const SizedBox(
+                            height: 32.0,
+                          ),
                           Container(
                             width: double.infinity,
                             child: Column(
@@ -96,46 +99,49 @@ class _OngoingCasesScreenState extends State<OngoingCasesScreen> {
                                     "Ongoing Cases",
                                     style: GoogleFonts.poppins(
                                       color: Colors.white,
-                                      fontSize: 30.0,
+                                      fontSize: 24.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
                                 ),
                                 TextButton(
                                   onPressed: () {
-                                    Navigator.of(context).pushNamed(FileACaseScreen.routeName);
+                                    Navigator.of(context)
+                                        .pushNamed(FileACaseScreen.routeName);
                                   },
                                   child: Text(
                                     "File a case",
                                     style: GoogleFonts.poppins(
                                       color: Colors.white,
-                                      fontSize: 30.0,
+                                      fontSize: 24.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
                                 ),
                                 TextButton(
                                   onPressed: () {
-                                    Navigator.of(context).pushNamed(ReportAChildScreen.routeName);
+                                    Navigator.of(context).pushNamed(
+                                        ReportAChildScreen.routeName);
                                   },
                                   child: Text(
                                     "Report a missing child",
                                     style: GoogleFonts.poppins(
                                       color: Colors.white,
-                                      fontSize: 30.0,
+                                      fontSize: 24.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
                                 ),
                                 TextButton(
                                   onPressed: () {
-                                    Navigator.of(context).pushNamed(DashboardScreen.routeName);
+                                    Navigator.of(context)
+                                        .pushNamed(DashboardScreen.routeName);
                                   },
                                   child: Text(
                                     "Dashboard",
                                     style: GoogleFonts.poppins(
                                       color: Colors.white,
-                                      fontSize: 30.0,
+                                      fontSize: 24.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
@@ -146,7 +152,7 @@ class _OngoingCasesScreenState extends State<OngoingCasesScreen> {
                                     "Help/FAQs",
                                     style: GoogleFonts.poppins(
                                       color: Colors.white,
-                                      fontSize: 30.0,
+                                      fontSize: 24.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
@@ -157,7 +163,7 @@ class _OngoingCasesScreenState extends State<OngoingCasesScreen> {
                                     "Settings",
                                     style: GoogleFonts.poppins(
                                       color: Colors.white,
-                                      fontSize: 30.0,
+                                      fontSize: 24.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
@@ -165,16 +171,21 @@ class _OngoingCasesScreenState extends State<OngoingCasesScreen> {
                               ],
                             ),
                           ),
-                          const SizedBox(height: 36.0,),
+                          const SizedBox(
+                            height: 32.0,
+                          ),
                           const Divider(
                             thickness: 4.0,
                             color: Colors.white,
                           ),
-                          const SizedBox(height: 40.0,),
+                          const SizedBox(
+                            height: 40.0,
+                          ),
                           Center(
                             child: TextButton(
                               onPressed: () {
-                                Navigator.of(context).pushNamed(LoginScreen.routeName);
+                                Navigator.of(context)
+                                    .pushNamed(LoginScreen.routeName);
                               },
                               child: Text(
                                 "LOGOUT",
@@ -215,9 +226,316 @@ class _OngoingCasesScreenState extends State<OngoingCasesScreen> {
           ),
         ),
       ),
-      body: const Center(
-        child: Text(
-          "To be build.",
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(4.0),
+          child: Column(
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context)
+                      .pushNamed(OngoingCaseDetailsScreen.routeName);
+                },
+                child: Container(
+                  color: Colors.white,
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        'assets/boy.jpg',
+                        height: 72.0,
+                        width: 72.0,
+                      ),
+                      const SizedBox(
+                        width: 8.0,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Text("Case Number:  ",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                              Text("2W3R-144F-87YX",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Text("Name:  ",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                              Text("John Doe",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Text("Age:  ",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                              Text("11",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              GestureDetector(
+                onTap: () => print("pressed."),
+                child: Container(
+                  color: Colors.white,
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        'assets/boy.jpg',
+                        height: 72.0,
+                        width: 72.0,
+                      ),
+                      const SizedBox(
+                        width: 8.0,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Text("Case Number:  ",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                              Text("7Y44-90HG-OQ27",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Text("Name:  ",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                              Text("Michael Public",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Text("Age:  ",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                              Text("8",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              GestureDetector(
+                onTap: () => print("pressed."),
+                child: Container(
+                  color: Colors.white,
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        'assets/girl.jpg',
+                        height: 72.0,
+                        width: 72.0,
+                      ),
+                      const SizedBox(
+                        width: 8.0,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Text("Case Number:  ",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                              Text("4P9U-HG81-SS23",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Text("Name:  ",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                              Text("Jane Doe",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Text("Age:  ",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                              Text("16",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              GestureDetector(
+                onTap: () => print("pressed."),
+                child: Container(
+                  color: Colors.white,
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        'assets/boy.jpg',
+                        height: 72.0,
+                        width: 72.0,
+                      ),
+                      const SizedBox(
+                        width: 8.0,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Text("Case Number:  ",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                              Text("7Y6V-90UY-ERT3",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Text("Name:  ",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                              Text("John Roe",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Text("Age:  ",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                              Text("13",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              GestureDetector(
+                onTap: () => print("pressed."),
+                child: Container(
+                  color: Colors.white,
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        'assets/girl.jpg',
+                        height: 72.0,
+                        width: 72.0,
+                      ),
+                      const SizedBox(
+                        width: 8.0,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Text("Case Number:  ",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                              Text("33ER-TX45-67US",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Text("Name:  ",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                              Text("Jane Roe",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Text("Age:  ",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                              Text("14",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              GestureDetector(
+                onTap: () => print("pressed."),
+                child: Container(
+                  color: Colors.white,
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        'assets/boy.jpg',
+                        height: 72.0,
+                        width: 72.0,
+                      ),
+                      const SizedBox(
+                        width: 8.0,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Text("Case Number:  ",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                              Text("78QW-23YU-73GH",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Text("Name:  ",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                              Text("Richard Roe",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Text("Age:  ",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                              Text("9",
+                                  style: GoogleFonts.poppins(fontSize: 16.0)),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+            ],
+          ),
         ),
       ),
     );
