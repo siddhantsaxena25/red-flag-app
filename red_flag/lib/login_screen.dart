@@ -8,6 +8,7 @@ class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
   static const routeName = "/login_screen";
+  static var aadhar = "";
 
   @override
   _LoginScreenState createState() => _LoginScreenState();
@@ -37,6 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       // Start of login screen
 
       body: Center(
@@ -53,8 +55,8 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             // All widgets are shown columnwise
 
-            mainAxisAlignment:
-                MainAxisAlignment.spaceEvenly, // All widgets are evenly spaced
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly, // All widgets are evenly spaced
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               // Widgets displayed from now on
 
@@ -207,7 +209,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       );
                     } 
-                    
+
                     else {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
@@ -221,7 +223,32 @@ class _LoginScreenState extends State<LoginScreen> {
                   }
                                     
                   else {
-                    Navigator.of(context).pushNamed(OngoingCasesScreen.routeName);
+                    if (_aadharController.text.length != 12) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            "Aadhar number must be of 12 digits",
+                            style: GoogleFonts.poppins(fontSize: 16.0),
+                          ),
+                        ),
+                      );
+                    }
+
+                    else if (_passwordController.text.length < 8) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            "Password should have atleast 8 characters",
+                            style: GoogleFonts.poppins(fontSize: 16.0),
+                          ),
+                        ),
+                      );                    
+                    }
+
+                    else {
+                      LoginScreen.aadhar = _aadharController.text;
+                      Navigator.of(context).pushNamed(OngoingCasesScreen.routeName);
+                    }
                   }
                 },
                 child: Text(
@@ -245,13 +272,13 @@ class _LoginScreenState extends State<LoginScreen> {
 
               // Sign in and Forgot password
               Container(
-                width: double.infinity,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     // Sign in
                     Padding(
-                      padding: const EdgeInsets.only(left: 50.0, right: 50.0),
+                      padding: const EdgeInsets.only(left: 40.0, right: 20.0),
                       child: Row(
                         children: [
                           Text(
@@ -284,7 +311,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                     // Forgot password
                     Padding(
-                      padding: const EdgeInsets.only(left: 60.0, right: 60.0),
+                      padding: const EdgeInsets.only(left: 50.0, right: 40.0),
                       child: Row(
                         children: [
                           Text(
