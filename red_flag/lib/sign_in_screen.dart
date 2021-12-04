@@ -40,6 +40,7 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       // Start of sign in screen
 
       body: Center(
@@ -278,7 +279,32 @@ class _SignInScreenState extends State<SignInScreen> {
                       }
 
                       else {
-                        Navigator.of(context).pushNamed(OngoingCasesScreen.routeName);
+                        if (_aadharController.text.length != 12) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(
+                                "Aadhar number must be of 12 digits", 
+                                style: GoogleFonts.poppins(fontSize: 16.0),
+                              ),
+                            ),
+                          );
+                        }
+
+                        else if (_passwordController.text.length < 8) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(
+                                "Password should be of atleast 8 digits", 
+                                style: GoogleFonts.poppins(fontSize: 16.0),
+                              ),
+                            ),
+                          );
+                        }
+
+                        else {
+                          LoginScreen.aadhar = _aadharController.text;
+                          Navigator.of(context).pushNamed(OngoingCasesScreen.routeName);
+                        }
                       }
                     }
                   },
