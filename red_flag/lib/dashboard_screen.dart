@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:red_flag/dashboard_filed_cases_screen.dart';
+import 'package:red_flag/dashboard_filed_reports_screen.dart';
 
 import './login_screen.dart';
 import './home_page_ongoing_cases.dart';
 import './file_a_case_screen.dart';
 import './report_a_child_screen.dart';
+import './dashboard_filed_cases_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
-  const DashboardScreen({ Key? key }) : super(key: key);
+  const DashboardScreen({Key? key}) : super(key: key);
 
   static const routeName = "/dashboard_screen";
 
@@ -67,7 +70,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             ),
                           ),
                           Text(
-                            "Aadhar number",
+                            LoginScreen.aadhar,
                             style: GoogleFonts.poppins(
                               color: Colors.white,
                               fontSize: 18.0,
@@ -80,7 +83,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             thickness: 4.0,
                             color: Colors.white,
                           ),
-                          const SizedBox(height: 36.0,),
+                          const SizedBox(
+                            height: 32.0,
+                          ),
                           Container(
                             width: double.infinity,
                             child: Column(
@@ -89,39 +94,42 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               children: [
                                 TextButton(
                                   onPressed: () {
-                                    Navigator.of(context).pushNamed(OngoingCasesScreen.routeName);
+                                    Navigator.of(context).pushNamed(
+                                        OngoingCasesScreen.routeName);
                                   },
                                   child: Text(
                                     "Ongoing Cases",
                                     style: GoogleFonts.poppins(
                                       color: Colors.white,
-                                      fontSize: 30.0,
+                                      fontSize: 24.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
                                 ),
                                 TextButton(
                                   onPressed: () {
-                                    Navigator.of(context).pushNamed(FileACaseScreen.routeName);
+                                    Navigator.of(context)
+                                        .pushNamed(FileACaseScreen.routeName);
                                   },
                                   child: Text(
                                     "File a case",
                                     style: GoogleFonts.poppins(
                                       color: Colors.white,
-                                      fontSize: 30.0,
+                                      fontSize: 24.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
                                 ),
                                 TextButton(
                                   onPressed: () {
-                                    Navigator.of(context).pushNamed(ReportAChildScreen.routeName);
+                                    Navigator.of(context).pushNamed(
+                                        ReportAChildScreen.routeName);
                                   },
                                   child: Text(
                                     "Report a missing child",
                                     style: GoogleFonts.poppins(
                                       color: Colors.white,
-                                      fontSize: 30.0,
+                                      fontSize: 24.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
@@ -134,7 +142,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                     "Dashboard",
                                     style: GoogleFonts.poppins(
                                       color: Colors.white,
-                                      fontSize: 30.0,
+                                      fontSize: 24.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
@@ -145,7 +153,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                     "Help/FAQs",
                                     style: GoogleFonts.poppins(
                                       color: Colors.white,
-                                      fontSize: 30.0,
+                                      fontSize: 24.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
@@ -156,7 +164,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                     "Settings",
                                     style: GoogleFonts.poppins(
                                       color: Colors.white,
-                                      fontSize: 30.0,
+                                      fontSize: 24.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
@@ -164,16 +172,21 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               ],
                             ),
                           ),
-                          const SizedBox(height: 36.0,),
+                          const SizedBox(
+                            height: 32.0,
+                          ),
                           const Divider(
                             thickness: 4.0,
                             color: Colors.white,
                           ),
-                          const SizedBox(height: 40.0,),
+                          const SizedBox(
+                            height: 40.0,
+                          ),
                           Center(
                             child: TextButton(
                               onPressed: () {
-                                Navigator.of(context).pushNamed(LoginScreen.routeName);
+                                Navigator.of(context)
+                                    .pushNamed(LoginScreen.routeName);
                               },
                               child: Text(
                                 "LOGOUT",
@@ -214,9 +227,54 @@ class _DashboardScreenState extends State<DashboardScreen> {
           ),
         ),
       ),
-      body: const Center(
-        child: Text(
-          "To be build.",
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed(DashboardFiledCasesScreen.routeName);
+                },
+                child: Text(
+                  "View\nFiled cases",
+                  style:
+                      GoogleFonts.poppins(fontSize: 45.0, color: Colors.white),
+                  textAlign: TextAlign.center,
+                ),
+                style: TextButton.styleFrom(
+                  backgroundColor: Colors.red,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0),),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 20.0, vertical: 30.0),
+                ),
+              ),
+              const SizedBox(
+                height: 50.0,
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed(DashboardFiledReportsScreen.routeName);
+                },
+                child: Text(
+                  "View\nReports",
+                  style: GoogleFonts.poppins(
+                    fontSize: 45.0,
+                    color: Colors.white,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                style: TextButton.styleFrom(
+                  backgroundColor: Colors.red,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0),),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 58.0, vertical: 30.0),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
