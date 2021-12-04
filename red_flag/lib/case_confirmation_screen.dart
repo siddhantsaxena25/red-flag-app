@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/filed_case_details_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import './login_screen.dart';
@@ -7,6 +6,7 @@ import './file_a_case_screen.dart';
 import './report_a_child_screen.dart';
 import './dashboard_screen.dart';
 import './home_page_ongoing_cases.dart';
+import './filed_case_details_screen.dart';
 
 class CaseConfirmationScreen extends StatefulWidget {
   const CaseConfirmationScreen({Key? key}) : super(key: key);
@@ -29,7 +29,7 @@ class _CaseConfirmationScreenState extends State<CaseConfirmationScreen> {
             "Case confirmation",
             style: GoogleFonts.manrope(
               color: Colors.white,
-              fontSize: 32.0,
+              fontSize: 26.0,
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -69,7 +69,7 @@ class _CaseConfirmationScreenState extends State<CaseConfirmationScreen> {
                             ),
                           ),
                           Text(
-                            "Aadhar number",
+                            LoginScreen.aadhar,
                             style: GoogleFonts.poppins(
                               color: Colors.white,
                               fontSize: 18.0,
@@ -83,7 +83,7 @@ class _CaseConfirmationScreenState extends State<CaseConfirmationScreen> {
                             color: Colors.white,
                           ),
                           const SizedBox(
-                            height: 36.0,
+                            height: 32.0,
                           ),
                           Container(
                             width: double.infinity,
@@ -93,56 +93,52 @@ class _CaseConfirmationScreenState extends State<CaseConfirmationScreen> {
                               children: [
                                 TextButton(
                                   onPressed: () {
-                                    Navigator.of(context).pushNamed(
-                                        OngoingCasesScreen.routeName);
+                                    Navigator.of(context).pushNamed(OngoingCasesScreen.routeName);
                                   },
                                   child: Text(
                                     "Ongoing Cases",
                                     style: GoogleFonts.poppins(
                                       color: Colors.white,
-                                      fontSize: 30.0,
+                                      fontSize: 24.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
                                 ),
                                 TextButton(
                                   onPressed: () {
-                                    Navigator.of(context)
-                                        .pushNamed(FileACaseScreen.routeName);
+                                    Navigator.of(context).pushNamed(FileACaseScreen.routeName);
                                   },
                                   child: Text(
                                     "File a case",
                                     style: GoogleFonts.poppins(
                                       color: Colors.white,
-                                      fontSize: 30.0,
+                                      fontSize: 24.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
                                 ),
                                 TextButton(
                                   onPressed: () {
-                                    Navigator.of(context).pushNamed(
-                                        ReportAChildScreen.routeName);
+                                    Navigator.of(context).pushNamed(ReportAChildScreen.routeName);
                                   },
                                   child: Text(
                                     "Report a missing child",
                                     style: GoogleFonts.poppins(
                                       color: Colors.white,
-                                      fontSize: 30.0,
+                                      fontSize: 24.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
                                 ),
                                 TextButton(
                                   onPressed: () {
-                                    Navigator.of(context)
-                                        .pushNamed(DashboardScreen.routeName);
+                                    Navigator.of(context).pushNamed(DashboardScreen.routeName);
                                   },
                                   child: Text(
                                     "Dashboard",
                                     style: GoogleFonts.poppins(
                                       color: Colors.white,
-                                      fontSize: 30.0,
+                                      fontSize: 24.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
@@ -153,7 +149,7 @@ class _CaseConfirmationScreenState extends State<CaseConfirmationScreen> {
                                     "Help/FAQs",
                                     style: GoogleFonts.poppins(
                                       color: Colors.white,
-                                      fontSize: 30.0,
+                                      fontSize: 24.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
@@ -164,7 +160,7 @@ class _CaseConfirmationScreenState extends State<CaseConfirmationScreen> {
                                     "Settings",
                                     style: GoogleFonts.poppins(
                                       color: Colors.white,
-                                      fontSize: 30.0,
+                                      fontSize: 24.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
@@ -173,7 +169,7 @@ class _CaseConfirmationScreenState extends State<CaseConfirmationScreen> {
                             ),
                           ),
                           const SizedBox(
-                            height: 36.0,
+                            height: 32.0,
                           ),
                           const Divider(
                             thickness: 4.0,
@@ -246,6 +242,7 @@ class _CaseConfirmationScreenState extends State<CaseConfirmationScreen> {
                   color: Colors.black,
                   fontSize: 18.8,
                 ),
+                textAlign: TextAlign.center,
               ),
               const SizedBox(height: 29.0,),
               TextButton(
