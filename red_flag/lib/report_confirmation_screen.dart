@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/reported_case_details_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import './login_screen.dart';
@@ -7,6 +6,7 @@ import './file_a_case_screen.dart';
 import './report_a_child_screen.dart';
 import './dashboard_screen.dart';
 import './home_page_ongoing_cases.dart';
+import './reported_case_details_screen.dart';
 
 class ReportConfirmationScreen extends StatefulWidget {
   const ReportConfirmationScreen({ Key? key }) : super(key: key);
@@ -69,7 +69,7 @@ class _ReportConfirmationScreenState extends State<ReportConfirmationScreen> {
                             ),
                           ),
                           Text(
-                            "Aadhar number",
+                            LoginScreen.aadhar,
                             style: GoogleFonts.poppins(
                               color: Colors.white,
                               fontSize: 18.0,
@@ -82,7 +82,7 @@ class _ReportConfirmationScreenState extends State<ReportConfirmationScreen> {
                             thickness: 4.0,
                             color: Colors.white,
                           ),
-                          const SizedBox(height: 36.0,),
+                          const SizedBox(height: 32.0,),
                           Container(
                             width: double.infinity,
                             child: Column(
@@ -97,7 +97,7 @@ class _ReportConfirmationScreenState extends State<ReportConfirmationScreen> {
                                     "Ongoing Cases",
                                     style: GoogleFonts.poppins(
                                       color: Colors.white,
-                                      fontSize: 30.0,
+                                      fontSize: 24.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
@@ -110,7 +110,7 @@ class _ReportConfirmationScreenState extends State<ReportConfirmationScreen> {
                                     "File a case",
                                     style: GoogleFonts.poppins(
                                       color: Colors.white,
-                                      fontSize: 30.0,
+                                      fontSize: 24.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
@@ -123,7 +123,7 @@ class _ReportConfirmationScreenState extends State<ReportConfirmationScreen> {
                                     "Report a missing child",
                                     style: GoogleFonts.poppins(
                                       color: Colors.white,
-                                      fontSize: 30.0,
+                                      fontSize: 24.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
@@ -136,7 +136,7 @@ class _ReportConfirmationScreenState extends State<ReportConfirmationScreen> {
                                     "Dashboard",
                                     style: GoogleFonts.poppins(
                                       color: Colors.white,
-                                      fontSize: 30.0,
+                                      fontSize: 24.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
@@ -147,7 +147,7 @@ class _ReportConfirmationScreenState extends State<ReportConfirmationScreen> {
                                     "Help/FAQs",
                                     style: GoogleFonts.poppins(
                                       color: Colors.white,
-                                      fontSize: 30.0,
+                                      fontSize: 24.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
@@ -158,7 +158,7 @@ class _ReportConfirmationScreenState extends State<ReportConfirmationScreen> {
                                     "Settings",
                                     style: GoogleFonts.poppins(
                                       color: Colors.white,
-                                      fontSize: 30.0,
+                                      fontSize: 24.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
@@ -166,7 +166,7 @@ class _ReportConfirmationScreenState extends State<ReportConfirmationScreen> {
                               ],
                             ),
                           ),
-                          const SizedBox(height: 36.0,),
+                          const SizedBox(height: 32.0,),
                           const Divider(
                             thickness: 4.0,
                             color: Colors.white,
@@ -233,8 +233,9 @@ class _ReportConfirmationScreenState extends State<ReportConfirmationScreen> {
                 "Your report has been filed successfully",
                 style: GoogleFonts.poppins(
                   color: Colors.black,
-                  fontSize: 18.8,
+                  fontSize: 18.5,
                 ),
+                textAlign: TextAlign.center,
               ),
               const SizedBox(height: 29.0,),
               TextButton(
