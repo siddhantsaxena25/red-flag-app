@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:red_flag/notificationservice.dart';
+import 'package:timezone/timezone.dart' as tz;
+import 'package:timezone/data/latest.dart' as tz;
 
 import './login_screen.dart';
 import './home_page_ongoing_cases.dart';
@@ -72,6 +75,8 @@ class _FileACaseScreenState extends State<FileACaseScreen> {
     _genderController = TextEditingController();
     _appearanceController = TextEditingController();
     _illnessController = TextEditingController();
+
+    tz.initializeTimeZones();
   }
 
   @override
@@ -704,8 +709,12 @@ class _FileACaseScreenState extends State<FileACaseScreen> {
                     FileACaseScreen.appearance = _appearanceController.text;
                     FileACaseScreen.illness = _illnessController.text;
 
-                    Navigator.of(context)
-                        .pushNamed(CaseConfirmationScreen.routeName);
+                    String notifTitle = "MISSING CHILD ALERT";
+                    String notifBody = "${FileACaseScreen.name}, aged ${FileACaseScreen.age} of ${FileACaseScreen.district},${FileACaseScreen.state}";
+
+                    NotificationService().showNotification(1, notifTitle, notifBody, 1);
+
+                    Navigator.of(context).pushNamed(CaseConfirmationScreen.routeName);
                   }
                 },
                 child: Text(
