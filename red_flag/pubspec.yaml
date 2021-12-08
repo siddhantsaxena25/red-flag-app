@@ -39,6 +39,8 @@ dependencies:
   sqflite: ^2.0.0+4
   path: ^1.8.0
   image_picker: ^0.8.4+4
+  flutter_local_notifications: ^6.0.0
+  timezone: ^0.7.0
 
 
 flutter_icons:
